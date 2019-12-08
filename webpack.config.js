@@ -1,10 +1,9 @@
-const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/styles.css',
-  mode: process.env.NODE_ENV,
+  mode: 'development',
   module: {
     rules: [
       {
@@ -20,9 +19,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css', {
-      disable: process.env.NODE_ENV === 'development',
-    }),
+    new ExtractTextPlugin('main.css'), 
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/index.html',
